@@ -9,10 +9,15 @@ use Illuminate\Http\Request;
 
 class CarsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $cars = Car::all();
-        return response()->json($cars);
+        $brand = $request->query('brand');
+        $per_page = $request->query('per_page', 10);
+
+        $query = Car::query();
+
+        $cars = $query->paginate($per_page);
+
     }
 
     public function show(Car $car) {
