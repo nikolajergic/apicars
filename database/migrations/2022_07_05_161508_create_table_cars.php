@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('table_cars', function (Blueprint $table) {
+        Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('brand');
